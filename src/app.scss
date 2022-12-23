@@ -1,0 +1,44 @@
+@use "./colors/colors" as *;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(90deg, $sun-1 0%, $sky-1 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    @media (max-width: 767px) {
+        max-width: 500px;
+    }
+    @media (max-width: 500px) {
+        max-width: 340px;
+    }
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}

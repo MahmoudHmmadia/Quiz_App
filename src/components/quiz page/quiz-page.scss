@@ -1,0 +1,110 @@
+@use "../../mixins/button.scss" as *;
+@use "../../colors/colors.scss" as *;
+.quiz-app {
+    padding: 20px;
+    .quiz-app__question-number {
+        margin-bottom: 20px;
+        font-size: 50px;
+    }
+    .quiz-app__question {
+        text-align: start;
+        font-size: 22px;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+    }
+    .quiz-app__answers {
+        text-align: start;
+        margin-bottom: 20px;
+        .answer {
+            color: $sky-1;
+            letter-spacing: 2px;
+            font-size: 14px;
+            padding: 5px 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            background: linear-gradient(90deg, $sun-2 0%, $sky-2 100%);
+            cursor: pointer;
+            transition: 0.3s all ease-in-out;
+        }
+        .select {
+            user-select: none;
+            opacity: 0.3;
+        }
+    }
+    .quiz-app__dashboard {
+        display: flex;
+        justify-content: space-between;
+        .timer {
+            background: linear-gradient(90deg, $sun-1 0%, $sky-2 100%);
+            color: $sun-2;
+            padding: 5px 10px;
+            line-height: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border-radius: 5px 0;
+            .icon {
+                position: absolute;
+                left: -40px;
+                bottom: -40px;
+                font-size: 40px;
+                transition: 0.3s all ease-in-out;
+                animation: arrow-moving 1s infinite alternate-reverse;
+            }
+        }
+        .skip-button {
+            @include button;
+        }
+    }
+    .done-quiz {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+        .image-container {
+            img {
+                max-width: 100%;
+            }
+        }
+        .next-button {
+            @include button;
+        }
+    }
+}
+
+// ==> Responsive <== //
+@media (max-width: 767px) {
+    .quiz-app__question-number {
+        font-size: 30px !important;
+    }
+    .quiz-app__question {
+        font-size: 18px !important;
+    }
+    .answer {
+        font-size: 12px !important;
+    }
+}
+
+@media (min-width: 767px) {
+    .done-quiz {
+        .image-container {
+            width: 700px;
+        }
+    }
+}
+
+// ==> Animations <== //
+@keyframes arrow-moving {
+    0% {
+        transform: scale(100%);
+        left: -40px;
+        bottom: -40px;
+    }
+    100% {
+        transform: scale(50%);
+        left: -60px;
+        bottom: -60px;
+    }
+}

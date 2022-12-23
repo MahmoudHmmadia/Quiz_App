@@ -1,0 +1,17 @@
+@use '../colors/colors.scss'as*;
+@mixin button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    background: linear-gradient(90deg, $sun-1 0%, $sky-2 100%);
+    color: $sun-2;
+    letter-spacing: 2px;
+    text-decoration: none;
+    font-weight: 500;
+    &:hover {
+        background: linear-gradient(90deg, $sky-2 0%, $sun-1 100%);
+    }
+}

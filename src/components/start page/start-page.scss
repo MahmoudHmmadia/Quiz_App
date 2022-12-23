@@ -1,0 +1,86 @@
+@use '../../mixins/button.scss'as*;
+@use '../../colors/colors.scss'as*;
+.start-page {
+    padding: 90px;
+    border: 1px solid $sky-2;
+    border-radius: 20px;
+    .start-page__title {
+        margin-bottom: 50px;
+        font-weight: 900;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .app-icon {
+            font-size: 40px;
+            margin-left: 10px;
+            display: flex;
+        }
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            transition: all ease-in-out .3s;
+        }
+        &::after {
+            right: -60px;
+            bottom: -60px;
+            animation: right-circle 5s infinite alternate-reverse;
+            background-color: $sun-2;
+        }
+        &::before {
+            left: -60px;
+            top: -60px;
+            animation: left-circle 5s infinite alternate-reverse;
+            background-color: $sky-1;
+        }
+    }
+    .start-page__info {
+        margin-bottom: 30px;
+        letter-spacing: 2px;
+        color: #eee;
+    }
+    .start-page__start-btn {
+        @include button;
+    }
+}
+
+// ==> Responsive <== //
+@media (max-width:767px) {
+    .start-page__title {
+        font-size: 30px !important;
+        flex-direction: column;
+    }
+}
+
+// ==> Animations <== // 
+@keyframes left-circle {
+    0% {
+        left: -60px;
+        top: -60px;
+    }
+    50% {
+        left: calc(100% + 60px);
+    }
+    100% {
+        top: calc(100% + 30px);
+        background-color: $sun-2;
+    }
+}
+
+@keyframes right-circle {
+    0% {
+        right: -60px;
+        bottom: -60px;
+    }
+    50% {
+        right: calc(100% + 60px);
+    }
+    100% {
+        bottom: calc(100% + 30px);
+        background-color: $sky-1;
+    }
+}

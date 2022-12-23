@@ -1,0 +1,25 @@
+@use '../../mixins/button.scss' as*;
+@use '../../colors/colors.scss'as*;
+.result-page {
+    padding: 50px;
+    border: 1px solid $sky-2;
+    border-radius: 20px;
+    .done-icon {
+        font-size: 150px;
+    }
+    .result-page__info {
+        letter-spacing: 2px;
+        font-weight: 500;
+        margin-bottom: 30px
+    }
+    .result-page__restart-btn {
+        @include button;
+    }
+}
+
+// ==> Responsive <== //
+@media (max-width:767px) {
+    .result-page__info {
+        font-size: 30px;
+    }
+}
